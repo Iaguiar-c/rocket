@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-image: url(./back/fundo3.png);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #120b1f;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+header {
+    /*pode ser margin-top tb*/
+    padding-top: 32px;
+    /*text-align: center;  toda propriedade de texto é alinhada ao centro, neste caso não vai funcionar pq div n tem propriedade de texto, ai vai usar o margin auto*/
+    height: calc(120px + 32px); /* vai somar os 32 px ao header*/
+}
+
+header  div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #181b33 0%, #404569 50%, #888284 100%);
+
+    border-radius: 50%;
+
+    padding: 4px; /*preenchimento*/
+    display: flex; /*faz um elemento ficar ao lado um do outro*/
+
+    transition: transform .3s; /* aqui esta se referindo ao elemento transfom da div de baixo, isso significa que quando passar o mouse encima, vai receber o elemento transform, quando o elemento transform ocorrer, vai ter a transition*/
+}
+
+/*transição*/
+header div:hover {
+    transform: scale(1.1) /* quando passa o mouse muda a escala do elemento*/
+
+
+}
+
+header div img {
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+
+ /* "*" seletor universal*/
+
+main {
+    max-width: 580px;
+    width: 90%;
+
+    /* quando tem 2 valores o 1 vai identificar encima e em baixo, o 2 continua normal, neste caso: preenchimento automático*/
+    margin: 32px auto;
+
+    display: grid; /*quadradinhos um d baixo do outro*/
+    gap: 24px;
+
+}
+
+section{
+    color: white;
+
+    background-image: linear-gradient(90deg, #181b33 0%, #404569 50%, #888284 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #181b33;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #a1a1aa;
+}
+
+section ul {
+
+    /*vizualização das caixas no html*/
+    display: flex; /*faz com que elas fiquem uma ao lado da outra*/
+    
+    /*quando tiver + coisa vai pegar e jogar p baixo, ao inves de ir colocando do lado*/
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+/*transição*/
+section ul li {
+    transition: transform .3s;
+
+}
+
+section ul li:hover {
+    transform: scale(1.1)
+}
+
+.anime-list img {
+    border-radius: 8px;
+    width: 90px;
+
+}
+
+.anime-characters img {
+    border-radius: 50%;
+    width: 70px;
+
+    border: 1px solid #404569;
+}
+
+/*animações*/
+
+header div {
+
+    /* def o nome da animação e o tempo*/
+    animation: fromTop .7s .2s backwards; /* vai puxar as proriedades d animação p cá e ai quando iniciar ja começa c a animação*/
+    /* animation-delay: 1s;  a animação vai começar depois desse tempo, só que ele pode estar junto c o de cima*/
+}
+
+main section {
+    animation: fromBotton .7s backwards;
+}
+
+/*aqui vai animar p as sections aparecerem uma depois da outra*/
+/* vai pegar o section do filho aqui começando do 1*/
+main section:nth-child(1) {
+    animation-delay: 0; /* o 1 n precisa mudar*/
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+/*primeiro tem que def a animação e dar o nome p ela*/
+
+@keyframes fromTop {
+    from {
+        opacity: 0; /* começa sem aparecer*/
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1; /* aparece por completo*/
+        transform: translateY(0); /*o Y é o eixo, vai mover até o 0 = até onde ele está*/
+    }
+}
+
+@keyframes fromBotton {
+    from {
+        opacity: 0; /* começa sem aparecer*/
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1; /* aparece por completo*/
+        transform: translateY(0); /*o Y é o eixo, vai mover até o 0 = até onde ele está*/
+    }
+}
