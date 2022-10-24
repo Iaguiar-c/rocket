@@ -16,4 +16,4 @@ Projeto construído no evento Next Level Week da Rocketseat
 
 ## Contato
 
-- email: bellacorreia2004@gmaiil.com
+- email: bellacorreia2004@gmail.com
